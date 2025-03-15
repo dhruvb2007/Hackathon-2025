@@ -11,7 +11,7 @@ pathway_bp = Blueprint('personalized_pathway', __name__)
 genai.configure(api_key="AIzaSyAmNRvyNqBdFtotLiD-i6rmVrXf1Gg9Rc4")
 
 # Load the trained model
-model = joblib.load("/student_performance_model.pkl")
+model = joblib.load("student_performance_model.pkl")
 
 # Define max values for normalization
 max_values = {
