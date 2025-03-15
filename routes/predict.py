@@ -5,7 +5,7 @@ import numpy as np
 predict_bp = Blueprint('predict', __name__)
 
 # Load the trained model
-model = joblib.load("/student_performance_model.pkl")
+model = joblib.load("student_performance_model.pkl")
 
 # Define max values for normalization
 max_values = {
