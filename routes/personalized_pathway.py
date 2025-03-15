@@ -10,8 +10,8 @@ pathway_bp = Blueprint('personalized_pathway', __name__)
 # Directly pass your Gemini API key here
 genai.configure(api_key="AIzaSyAmNRvyNqBdFtotLiD-i6rmVrXf1Gg9Rc4")
 
-# Load the trained model
-model = joblib.load("student_performance_model.pkl")
+def load_model():
+    return joblib.load("student_performance_model.pkl")
 
 # Define max values for normalization
 max_values = {
@@ -69,6 +69,7 @@ def generate_learning_path(predicted_score, input_data):
 @pathway_bp.route('/personalized_pathway', methods=['GET'])
 def personalized_pathway():
     try:
+        model = load_model()
         # Get input data
         input_data = {key: float(request.args.get(key)) for key in max_values}
 
