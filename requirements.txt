@@ -3,7 +3,7 @@ google-generativeai==0.2.0
 joblib==1.2.0
 numpy==1.26.4
 pandas==2.0.3
-scikit-learn==1.2.2
+scikit-learn==1.6.1
 gunicorn==20.1.0
 Werkzeug==2.2.3
 gdown==4.4.0
