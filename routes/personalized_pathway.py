@@ -51,6 +51,7 @@ def generate_learning_path(predicted_score, input_data):
     return jsonify({"error": "No response from Gemini API"}), 500
 
 @pathway_bp.route('/personalized_pathway', methods=['GET'])
+@cross_origin()
 def personalized_pathway():
     try:
         model = load_model()
