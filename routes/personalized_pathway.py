@@ -30,11 +30,10 @@ def generate_learning_path(predicted_score, input_data):
 
     The predicted final performance score is {predicted_score}/100.
     
-    Suggest a **personalized learning pathway**:
-    - **Strengths**
-    - **Weaknesses**
-    - **Study Plan**
-    - **Resources**
+    Suggest a **short** personalized learning pathway:
+    - **Key Strengths**
+    - **Main Weaknesses**
+    - **One Study Tip**
     
     Provide the response in JSON format.
     """
@@ -45,11 +44,15 @@ def generate_learning_path(predicted_score, input_data):
     if response and hasattr(response, "text"):
         try:
             json_response = json.loads(response.text.replace('```json\n', '').replace('\n```', ''))
-            return jsonify({"Personalized_Pathway": json_response, "Predicted_Final_Score": round(predicted_score, 2)})
+            return jsonify({
+                "Personalized_Pathway": json_response,
+                "Predicted_Final_Score": round(predicted_score, 2)
+            })
         except json.JSONDecodeError:
             return jsonify({"error": "Invalid JSON format in Gemini API response"}), 500
 
     return jsonify({"error": "No response from Gemini API"}), 500
+
 
 @pathway_bp.route('/personalized_pathway', methods=['GET'])
 @cross_origin()
