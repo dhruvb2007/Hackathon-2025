@@ -1,4 +1,5 @@
 from flask import Blueprint, request, jsonify
+from flask_cors import CORS, cross_origin
 import numpy as np
 from Model.model_loader import load_model  # Import model loader
 
