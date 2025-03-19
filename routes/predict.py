@@ -16,6 +16,7 @@ max_values = {
 }
 
 @predict_bp.route('/predict', methods=['GET'])
+@cross_origin()
 def predict():
     try:
         model = load_model()
